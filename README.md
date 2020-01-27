@@ -4,7 +4,7 @@ This application is a search engine and resource for people who want to learn ne
 
 The user goes to the application because they want to research how to learn a new skill, such as cooking, coding, or carpentry.
 
-The application is currently in the development phase and will be released in six phases. Each phase will be a viable product that is incrementally more complex and detailed towards helping the user to achieve the end goal. 
+The application is currently in the development phase and will be released in five phases. Each phase will be a viable product that is incrementally more complex and detailed towards helping the user to achieve the end goal. 
 
 
 Phase One: Drop Down Selector with Basic Information
