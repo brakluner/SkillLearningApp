@@ -33,6 +33,7 @@ $(document).ready(function () {
 
 
 
+
 });
 
 //API key for cool videos
@@ -69,3 +70,6 @@ $(document).ready(function() {
   getVideo();
   
   });
+
+});
+

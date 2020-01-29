@@ -5,13 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SKill Learning App</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/scss.scss"/>
   </head>
   <body>
-
     <div class="header">
+      <h1>Learn New Skills</h1>
+    </div>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">this will be automated</option>
+          <li class="mega-menu">
+            <a data-toggle="mega-menu" href="#">One</a>
+            <div class="dropdown-pane bottom" id="mega-menu" data-dropdown data-options="closedOnClick:true; hover: true; vOffset:11">
+              <div class="row expanded">
+                <div class="column">
+                  <ul class="menu verticle">
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <ul class="menu vertical">
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <ul class="menu vertical">
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><input type="search" placeholder="Search"></li>
+        <li><button type="button" class="button">Search</button></li>
+      </ul>
+    </div>
+  </div>
+    <div class="retrieved-data">
+      <div class="wiki-content"></div>
+      <div class="video-placement"></div>
+      <div class="location links"></div>
+    </div>
+    <label>Multiple Select Menu
+      <select multiple>
+        <option value="showboat">Showboat</option>
+        <option value="redwing">Redwing</option>
+        <option value="narcho">Narcho</option>
+        <option value="hardball">Hardball</option>
+      </select>
+    </label>
+    <fieldset class="fieldset">
+      <legend>Sites to Visit</legend>
+      <input id="checkbox12" type="checkbox"><label for="checkbox12">Youtube</label>
+      <input id="checkbox22" type="checkbox"><label for="checkbox22">Wiki</label>
+      <input id="checkbox32" type="checkbox"><label for="checkbox32">Geolocation</label>
+    </fieldset>
+     <div class="header">
       <h1>Learn New Skills</h1>
     </div>
     <form class="skill-selection">
@@ -31,7 +100,12 @@
     <iframe src=""></iframe>
     <h3>Video Title</h3>
     <p class="description">Video Description<p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
   </body>
-
-  
 </html>
+
