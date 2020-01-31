@@ -36,6 +36,12 @@ $(document).ready(function () {
 
 });
 
+
+// Add click functions to drop down menu
+
+var dropDown = 
+
+
 //API key for cool videos
 
 $(document).ready(function() {
@@ -71,5 +77,5 @@ $(document).ready(function() {
   
   });
 
-});
+
 
