@@ -24,7 +24,7 @@ $(document).ready(function () {
         createNewOption.attr("id", objectTest[keys[i]].LocationTest);
         createNewOption.attr("value", objectTest[keys[i]].LocationTest);
         $(createNewOption).text(objectTest[keys[i]].LocationTest);
-        console.log(objectTest[keys[i]].LocationTest);
+        //console.log(objectTest[keys[i]].LocationTest);
 
 
 
@@ -47,13 +47,13 @@ $(document).ready(function () {
 
 
 
-//API key for cool videos
+
 
 $(document).ready(function () {
+    var searchBar = $("#search").val();
+    //API key for cool videos
 
     $(".button").click(function () {
-
-        var searchBar = $("#search").val();
 
         function getVideo() {
             $.ajax({
@@ -70,7 +70,7 @@ $(document).ready(function () {
                 success: function (data) {
                     embedVideo(data)
                 },
-                error: function (response) {
+                error: function () {
                     console.log("Request Failed");
                 }
             });
@@ -89,4 +89,26 @@ $(document).ready(function () {
 
 
     });
+
+    //API AJAX for DuckDuckGo
+    $(".button").click(function () {
+
+        function getInfo() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',
+                data: {
+                    //key: '',
+                    q: searchBar,
+                    maxResults: 1,
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('.wiki-content').text(data);
+                }
+            });
+        }
+        getInfo();
+    });
+
 });
