@@ -64,27 +64,7 @@ $(document).ready(function () {
 
 
 
-            function getVideo() {
-                $.ajax({
-                    type: 'GET',
-                    url: 'https://www.googleapis.com/youtube/v3/search',
-                    data: {
-                        key: 'AIzaSyBlRMCifkXmDv30ugkOCWMX3OkgtpNseR4',
-                        q: "How to " + searchBar,
-                        part: 'snippet',
-                        maxResults: 1,
-                        type: 'video',
-                        videoEmbeddable: true,
-                    },
-                    success: function (data) {
-                        embedVideo(data)
-                    },
-                    error: function (response) {
-                        console.log("Request Failed");
-                    }
-                });
-
-            }
+            
 
             function getVideo() {
                 $.ajax({
