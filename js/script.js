@@ -55,6 +55,13 @@ $(document).ready(function () {
 
         var searchBar = $("#search").val();
 
+
+    
+    if ($("#checkbox12").prop("checked") == true) {
+        
+    
+    
+
     function getVideo() 
     {
         $.ajax({
@@ -82,10 +89,19 @@ $(document).ready(function () {
     function embedVideo(data) {
         $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
         $('h3').text(data.items[0].snippet.title)
-        $('.description').text(data.items[0].snippet.description)
+        //$('.description').text(data.items[0].snippet.description)
     }
+}
 
     getVideo();
+
+    if ($("#checkbox22").prop("checked") == true) {
+
+    };
+
+    if ($("#checkbox32").prop("checked") == true) {
+
+    };
 
     
 
