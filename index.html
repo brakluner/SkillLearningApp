@@ -15,14 +15,12 @@
   <!--  <link rel="stylesheet" href="css/scss.scss" />  -->
   </head>
   <body>
-
     <div class="hero-full-screen">
-
       <div class="top-content-section">
         <div class="top-bar">
           <form class="skill-selection">
             <select class="skill-dropdown menu-text">
-              <option value="example">this will be automated</option>
+              <option aria-placeholder="recent-menu">Recent Searches</option>
             </select>
           </form>
           <div class="top-bar-left">
@@ -34,93 +32,44 @@
           </div>
         </div>
       </div>
-    
+
       <div class="middle-content-section">
-        <h1>Super Compelling Headline</h1>
-        <li><input id="search" type="search" placeholder="Search" /></li>
-        <li><button type="button" class="button">Search</button></li>
+        <h1>Learn New Skills</h1>
+        <input id="search" type="search" placeholder="Search" />
+        <button type="button" class="button">Search</button>
       </div>
-    
+
       <div class="bottom-content-section" data-magellan data-threshold="0">
-        <a href="#main-content-section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"/></svg></a>
+        <a href="#main-content-section"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"
+            />
+          </svg>
+        </a>
       </div>
-    
     </div>
-    
+
     <div id="main-content-section" data-magellan-target="main-content-section">
       <!-- your content goes here -->
     </div>
-    
-    
-    <div class="header">
-      <h1>Learn New Skills</h1>
-    </div>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <form class="skill-selection">
-            <select class="skill-dropdown menu-text">
-              <option value="example">this will be automated</option>
-            </select>
-          </form>
-          <li class="mega-menu">
-            <a data-toggle="mega-menu" href="#">One</a>
-            <div
-              class="dropdown-pane bottom"
-              id="mega-menu"
-              data-dropdown
-              data-options="closedOnClick:true; hover: true; vOffset:11"
-            >
-              <div class="row expanded">
-                <div class="column">
-                  <ul class="menu verticle">
-                    <li><a href="#">One</a></li>
-                    <li><a href="#">Two</a></li>
-                    <li><a href="#">Three</a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <ul class="menu vertical">
-                    <li><a href="#">One</a></li>
-                    <li><a href="#">Two</a></li>
-                    <li><a href="#">Three</a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <ul class="menu vertical">
-                    <li><a href="#">One</a></li>
-                    <li><a href="#">Two</a></li>
-                    <li><a href="#">Three</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><input id="search" type="search" placeholder="Search" /></li>
-          <li><button type="button" class="button">Search</button></li>
-        </ul>
-      </div>
-    </div>
-    <div class="retrieved-data">
-      <div class="wiki-content"></div>
-      <div class="video-placement"></div>
-      <div class="location links"></div>
-    </div>
+
     <fieldset class="fieldset">
       <legend>Sites to Visit</legend>
-      <input id="youtube-radio" type="checkbox" /><label for="checkbox12"
+      <input id="youtube-radio" type="checkbox" checked /><label
+        for="youtube-radio"
         >Youtube</label
       >
-      <input id="wiki-radio" type="checkbox" /><label for="checkbox22"
+      <input id="wiki-radio" type="checkbox" checked /><label for="wiki-radio"
         >Wiki</label
       >
-      <input id="nearby-radio" type="checkbox" /><label for="checkbox32"
+      <input id="nearby-radio" type="checkbox" checked /><label
+        for="nearby-radio"
         >Learning Near Me</label
       >
     </fieldset>
@@ -134,9 +83,7 @@
       </div>
       <div class="location links"></div>
     </div>
-    <div id="def">
-      
-    </div>
+    <div id="def"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/vendor/jquery.js"></script>
