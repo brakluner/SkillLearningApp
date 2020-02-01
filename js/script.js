@@ -8,9 +8,7 @@ var objectTest = {
         Weather: "'It's Raining Men",
     }
 
-
 }
-
 
 let keys = Object.keys(objectTest);
 //console.log(objectTest[newI].LocationTest);
@@ -26,28 +24,12 @@ $(document).ready(function () {
         $(createNewOption).text(objectTest[keys[i]].LocationTest);
         //console.log(objectTest[keys[i]].LocationTest);
 
-
-
         $(".skill-dropdown").append(createNewOption);
     }
 
-
-
-
 });
 
-
 // Add click functions to Search
-
-
-
-
-
-
-
-
-
-
 
 $(document).ready(function () {
     var searchBar = $("#search").val();
@@ -77,13 +59,10 @@ $(document).ready(function () {
                 }
             });
 
-
             if ($("#checkbox12").prop("checked") == true) {
-
 
             }
         }
-
 
         function embedVideo(data) {
             $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
@@ -96,6 +75,29 @@ $(document).ready(function () {
         };
         if ($("#checkbox32").prop("checked") == true) {
         };
+
+
+        //Dictionary function
+        function getDefinition() {
+
+            var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/";
+            var queryParams = { "key": "00129733-b164-4319-9aef-fb3e4f691bac" };
+            DefSearch = searchBar
+
+            console.log("---------------\nURL: " + queryURL + "\n---------------");
+            console.log(queryURL + DefSearch + "?" + $.param(queryParams));
+            return queryURL + DefSearch + "?" + $.param(queryParams);
+        }
+
+        clear();
+
+        var queryURL = getDefinition();
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(updatePage);
+
     });
 
     //API AJAX for DuckDuckGo
@@ -120,3 +122,27 @@ $(document).ready(function () {
     });
 
 });
+
+function updatePage(defData) {
+    var mainDef = defData[0].meta.id
+    var defPron = defData[0].hwi.hw
+    var defType = defData[0].fl
+    var definition = defData[0].def[0].sseq[0][1][1].dt[0][1]
+    console.log(definition)
+
+    var displayDef = $("<div></div>").text(mainDef)
+    var displayPron = $("<div></div>").text(defPron)
+    var typeDef = $("<div></div>").text(defType)
+    var defi = $("<div></div>").text(definition)
+
+    $("#def").append(displayDef)
+    $("#def").append(displayPron)
+    $("#def").append(typeDef)
+    $("#def").append(defi)
+}
+
+function clear() {
+    $("#def").empty();
+
+}
+//end dictionary function
