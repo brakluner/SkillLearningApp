@@ -59,7 +59,7 @@ $(document).ready(function () {
 
 
 
-        if ($("#checkbox12").prop("checked") == true) {
+     //   if ($("#checkbox12").prop("checked") == true) {}
 
 
 
@@ -81,7 +81,7 @@ $(document).ready(function () {
                     success: function (data) {
                         embedVideo(data)
                     },
-                    error: function () {
+                    error: function (response) {
                         console.log("Request Failed");
                     }
                 });
@@ -93,27 +93,28 @@ $(document).ready(function () {
                 $('h3').text(data.items[0].snippet.title)
                 //$('.description').text(data.items[0].snippet.description)
             }
-        }
+        
 
-        function embedVideo(data) {
-            $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
-            $('h3').text(data.items[0].snippet.title)
-            $('.description').text(data.items[0].snippet.description)
-        }
+      
 
         getVideo();
 
+    
 
-        if ($("#checkbox22").prop("checked") == true) {
 
-        };
+    });
 
-        if ($("#checkbox32").prop("checked") == true) {
+});
 
-        };
+  
+
+       
 
 
 //Dictionary function
+
+
+/*
 
 
     function getDefinition() {
@@ -141,6 +142,9 @@ $(document).ready(function () {
     }).then(updatePage);
     
     });
+*/
+
+    /*
 
     //API AJAX for DuckDuckGo
     $(".button").click(function () {
@@ -185,6 +189,6 @@ function updatePage(defData) {
 
 function clear() {
     $("#def").empty();
-
-  }
+*/
+  
 //end dictionary function
