@@ -44,7 +44,7 @@ $(document).ready(function () {
             $.ajax({
                 url: queryURL,
                 method: "GET"
-            }).then(updatePage());
+            }).then(updatePage);
         };
 
         clear();
@@ -87,9 +87,10 @@ function embedVideo(data) {
 function getInfo(searchBar) {
     $.ajax({
         type: 'GET',
-        url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&',
+        url: 'https://en.wikipedia.org/w/api.php?action=query&titles=belgrade&prop=extracts|pageimages|info&pithumbsize=400&inprop=url&redirects=&format=json&origin=*',
         data: {
-            //key: '',
+            format: json,
+            action: query,
             title: searchBar,
             maxResults: 1,
         },
@@ -130,8 +131,8 @@ function updatePage(defData) {
     var typeDef = $("<div></div>").text(defType)
     var defi = $("<div></div>").text(definition)
 
-    $("#def").append(displayDef)
-    $("#def").append(displayPron)
-    $("#def").append(typeDef)
-    $("#def").append(defi)
+    $(".dictionary-def").append(displayDef)
+    $(".dictionary-def").append(displayPron)
+    $(".dictionary-def").append(typeDef)
+    $(".dictionary-def").append(defi)
 }
