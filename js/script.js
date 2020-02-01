@@ -34,7 +34,9 @@ $(document).ready(function () {
         if ($("#wiki-radio").prop("checked") == true) {
             getInfo(searchBar);
         };
-        if ($("#nearby-radio").prop("checked") == true) {
+
+        //if clicked, returns definition of search term
+        if ($("#def-radio").prop("checked") == true) {
             getDefinition(searchBar);
         };
         clear();
@@ -75,7 +77,7 @@ function embedVideo(data) {
     // $('.description').text(data.items[0].snippet.description)
 }
 //API AJAX for wiki
-function getInfo() {
+function getInfo(searchBar) {
     $.ajax({
         type: 'GET',
         url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&',
@@ -95,7 +97,7 @@ function clear() {
     $("#def").empty();
 }
 //Dictionary function
-function getDefinition() {
+function getDefinition(searchBar) {
     var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/";
     var queryParams = { "key": "00129733-b164-4319-9aef-fb3e4f691bac" };
     DefSearch = searchBar
@@ -105,7 +107,7 @@ function getDefinition() {
 }
 //updates the page to new info
 function updatePage(defData) {
-    var mainDef = defData[0].meta.id
+    //var mainDef = defData[0].meta.id
     var defPron = defData[0].hwi.hw
     var defType = defData[0].fl
     var definition = defData[0].def[0].sseq[0][1][1].dt[0][1]
