@@ -8,9 +8,7 @@ var objectTest = {
         Weather: "'It's Raining Men",
     }
 
-
 }
-
 
 let keys = Object.keys(objectTest);
 //console.log(objectTest[newI].LocationTest);
@@ -26,28 +24,12 @@ $(document).ready(function () {
         $(createNewOption).text(objectTest[keys[i]].LocationTest);
         //console.log(objectTest[keys[i]].LocationTest);
 
-
-
         $(".skill-dropdown").append(createNewOption);
     }
 
-
-
-
 });
 
-
 // Add click functions to Search
-
-
-
-
-
-
-
-
-
-
 
 $(document).ready(function () {
     var searchBar = $("#search").val();
@@ -57,109 +39,65 @@ $(document).ready(function () {
 
         var searchBar = $("#search").val();
 
+        function getVideo() {
+            $.ajax({
+                type: 'GET',
+                url: 'https://www.googleapis.com/youtube/v3/search',
+                data: {
+                    key: 'AIzaSyBlRMCifkXmDv30ugkOCWMX3OkgtpNseR4',
+                    q: "How to " + searchBar,
+                    part: 'snippet',
+                    maxResults: 1,
+                    type: 'video',
+                    videoEmbeddable: true,
+                },
+                success: function (data) {
+                    embedVideo(data)
+                },
+                error: function (response) {
+                    console.log("Request Failed");
+                }
+            });
 
+            if ($("#checkbox12").prop("checked") == true) {
 
-        if ($("#checkbox12").prop("checked") == true) {
-
-
-
-
-            function getVideo() {
-                $.ajax({
-                    type: 'GET',
-                    url: 'https://www.googleapis.com/youtube/v3/search',
-                    data: {
-                        key: 'AIzaSyBlRMCifkXmDv30ugkOCWMX3OkgtpNseR4',
-                        q: "How to " + searchBar,
-                        part: 'snippet',
-                        maxResults: 1,
-                        type: 'video',
-                        videoEmbeddable: true,
-                    },
-                    success: function (data) {
-                        embedVideo(data)
-                    },
-                    error: function (response) {
-                        console.log("Request Failed");
-                    }
-                });
-
-            }
-
-            function getVideo() {
-                $.ajax({
-                    type: 'GET',
-                    url: 'https://www.googleapis.com/youtube/v3/search',
-                    data: {
-                        key: 'AIzaSyBlRMCifkXmDv30ugkOCWMX3OkgtpNseR4',
-                        q: "How to " + searchBar,
-                        part: 'snippet',
-                        maxResults: 1,
-                        type: 'video',
-                        videoEmbeddable: true,
-                    },
-                    success: function (data) {
-                        embedVideo(data)
-                    },
-                    error: function () {
-                        console.log("Request Failed");
-                    }
-                });
-
-            }
-
-            function embedVideo(data) {
-                $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
-                $('h3').text(data.items[0].snippet.title)
-                //$('.description').text(data.items[0].snippet.description)
             }
         }
 
         function embedVideo(data) {
             $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
             $('h3').text(data.items[0].snippet.title)
-            $('.description').text(data.items[0].snippet.description)
+            // $('.description').text(data.items[0].snippet.description)
         }
 
         getVideo();
-
-
         if ($("#checkbox22").prop("checked") == true) {
-
         };
-
         if ($("#checkbox32").prop("checked") == true) {
-
         };
 
 
-//Dictionary function
+        //Dictionary function
+        function getDefinition() {
 
+            var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/";
+            var queryParams = { "key": "00129733-b164-4319-9aef-fb3e4f691bac" };
+            DefSearch = searchBar
 
-    function getDefinition() {
-    
-    var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/";
-  
-    
-    var queryParams = { "key": "00129733-b164-4319-9aef-fb3e4f691bac" };
-  
-    
-    DefSearch = searchBar
-    
-    console.log("---------------\nURL: " + queryURL + "\n---------------");
-    console.log(queryURL + DefSearch + "?" + $.param(queryParams));
-    return queryURL + DefSearch + "?" + $.param(queryParams);
-}
-    
-    clear();
+            console.log("---------------\nURL: " + queryURL + "\n---------------");
+            console.log(queryURL + DefSearch + "?" + $.param(queryParams));
+            return queryURL + DefSearch + "?" + $.param(queryParams);
+        }
 
-    var queryURL = getDefinition();
-  
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(updatePage);
-    
+        clear();
+
+        var queryURL = getDefinition();
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(updatePage);
+
     });
 
     //API AJAX for DuckDuckGo
@@ -206,5 +144,5 @@ function updatePage(defData) {
 function clear() {
     $("#def").empty();
 
-  }
+}
 //end dictionary function
