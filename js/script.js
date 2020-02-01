@@ -14,6 +14,7 @@ let keys = Object.keys(objectTest);
 //console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
 
+    //increments the recent serches
     let keys = Object.keys(objectTest);
     for (var i = 0; i < keys.length; i++) {
 
@@ -27,13 +28,7 @@ $(document).ready(function () {
         $(".skill-dropdown").append(createNewOption);
     }
 
-});
-
-// Add click functions to Search
-
-$(document).ready(function () {
-
-
+    // on click searchfunctions to Search
     $(".button").click(function () {
         var searchBar = $("#search").val();
         console.log(searchBar);
@@ -44,27 +39,18 @@ $(document).ready(function () {
         if ($("#wiki-radio").prop("checked") == true) {
             getInfo(searchBar);
         };
-        if ($("#nearby-radio").prop("checked") == true) {
-            getDefinition(searchBar);
+        if ($("#def-radio").prop("checked") == true) {
+            var queryURL = getDefinition(searchBar);
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(updatePage());
         };
 
         clear();
 
-        var queryURL = getDefinition();
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(updatePage);
-
     });
-
 });
-
-
-
-
-
 
 //list of functions
 //get the video
@@ -98,7 +84,7 @@ function embedVideo(data) {
 }
 
 //API AJAX for wiki
-function getInfo() {
+function getInfo(searchBar) {
     $.ajax({
         type: 'GET',
         url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&',
@@ -116,11 +102,11 @@ function getInfo() {
 
 //clrears previous info
 function clear() {
-    $("#def").empty();
+    $(".dictionary-def").empty();
 }
 
 //Dictionary function
-function getDefinition() {
+function getDefinition(searchBar) {
 
     var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/";
     var queryParams = { "key": "00129733-b164-4319-9aef-fb3e4f691bac" };
