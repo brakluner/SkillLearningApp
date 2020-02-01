@@ -11,6 +11,8 @@ var objectTest = {
 let keys = Object.keys(objectTest);
 //console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
+
+    //increments the recent serches
     let keys = Object.keys(objectTest);
     for (var i = 0; i < keys.length; i++) {
         var createNewOption = $("<option>");
@@ -24,6 +26,8 @@ $(document).ready(function () {
 });
 // Add click functions to Search
 $(document).ready(function () {
+
+    // on click searchfunctions to Search
     $(".button").click(function () {
         var searchBar = $("#search").val();
         console.log(searchBar);
@@ -38,6 +42,12 @@ $(document).ready(function () {
         //if clicked, returns definition of search term
         if ($("#def-radio").prop("checked") == true) {
             getDefinition(searchBar);
+        if ($("#def-radio").prop("checked") == true) {
+            var queryURL = getDefinition(searchBar);
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(updatePage());
         };
         clear();
         var queryURL = getDefinition();
@@ -47,6 +57,10 @@ $(document).ready(function () {
         }).then(updatePage);
     });
 });
+
+    });
+});
+
 //list of functions
 //get the video
 function getVideo(searchBar) {
@@ -94,10 +108,11 @@ function getInfo(searchBar) {
 }
 //clrears previous info
 function clear() {
-    $("#def").empty();
+    $(".dictionary-def").empty();
 }
 //Dictionary function
 function getDefinition(searchBar) {
+
     var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/";
     var queryParams = { "key": "00129733-b164-4319-9aef-fb3e4f691bac" };
     DefSearch = searchBar
