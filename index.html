@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SKill Learning App</title>
+    <title>Skill Learning App</title>
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -12,8 +12,10 @@
     ></script>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
+
     <link rel="stylesheet" href="css/scss.scss" />
     <link rel="stylesheet" href="css/style.css" />
+   
   </head>
 
   <body>
@@ -60,8 +62,8 @@
       </div>
 
       <div class="middle-content-section">
-        <h1>I want to learn how to</h1>
-        <input id="search" type="search" placeholder="Search" />
+        <h1 id = "red">I want to learn how to</h1>
+        <input id="search" type="search" placeholder="I want to learn how to..." />
         <button type="button" class="button">Search</button>
       </div>
 
@@ -85,18 +87,82 @@
       <!-- your content goes here -->
     </div>
 
-    <div class="retrieved-data">
-      <div class="dictionary-def"></div>
-      <div class="wiki-content"></div>
-      <div class="video-placement">
-        <!--<p class="description">Video Description</p> -->
-        <p></p>
-        <iframe src=""></iframe>
-        <h3>Video Title</h3>
+    <div class = "grid-x">
+
+    
+      <div class = "cell small-4">
+
+       
+        <div class="video-placement"></div>
+          <p class="description">Video Description</p>
+          <p></p>
+          <iframe src=""></iframe>
+          <h3>Video Title</h3>
+
       </div>
 
-      <div class="location links"></div>
+      <div class = "cell small-8">
+
+        <div class="retrieved-data"></div>
+          <div class="dictionary-def"></div>
+          <div class="wiki-content"></div>
+          <div class="video-placement"></div>
+
+
+      </div>
+
+     
+
+
+
+
     </div>
+
+    
+<!--
+    <div class = "row">
+
+      <div class = "columns small-6 ">
+
+        <div class="retrieved-data"></div>
+        <div class="dictionary-def"></div>
+        <div class="wiki-content"></div>
+        <div class="video-placement">
+          <p class="description">Video Description</p>
+          <p></p>
+          <iframe src=""></iframe>
+          <h3>Video Title</h3>
+        </div>
+
+      </div>
+    
+      
+      <div id = "right" class = "columns small-6 ">
+
+       
+
+        <div class="retrieved-data"></div>
+          <div class="dictionary-def"></div>
+          <div class="wiki-content"></div>
+          <div class="video-placement"></div>
+      
+        </div>
+
+      </div>
+
+    -->
+      
+
+    
+   
+
+    
+
+
+   
+        <!--<p class="description">Video Description</p> -->
+        
+     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/vendor/jquery.js"></script>
