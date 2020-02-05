@@ -87,10 +87,15 @@ function embedVideo(data) {
 function getInfo(searchBar) {
     $.ajax({
         type: 'GET',
-        url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + searchBar + '',
+        url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + searchBar,
+        crossDomain: true,
+        dataType: 'jsonp',
         success: function (data) {
             console.log(data);
-            $('.wiki-content').text(data);
+            let wikiKeys = Object.keys(data.query.pages);
+            console.log(data.query.pages[wikiKeys[0]].extract);
+            let wikiContent = data.query.pages[wikiKeys[0]].extract
+            $('.wiki-content').html(wikiContent);
         }
     });
 }
