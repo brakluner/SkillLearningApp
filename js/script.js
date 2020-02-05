@@ -154,6 +154,17 @@ function updatePage(defData) {
 
 });
 
+function getDropDown(recentSearches) {
+    for (var i = 0; i < recentSearches.length; i++) {
+        var createNewOption = $("<option>");
+        createNewOption.addClass("auto-option");
+        createNewOption.attr("id", recentSearches[i]);
+        createNewOption.attr("value", recentSearches[i]);
+        $(createNewOption).text(recentSearches[i]);
+        $(".skill-dropdown").append(createNewOption);
+    }
+}
+
 
 function addToDropDown(searchForBoth) {
     var createNewOption = $("<option>");
