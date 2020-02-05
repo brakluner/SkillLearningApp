@@ -1,3 +1,9 @@
+body {
+
+  background-image: url("https://raw.githubusercontent.com/jecarpenter/Basic-Portfolio/master/assets/images/concrete_seamless.png");
+  
+}
+
 .mega-menu .dropdown-pane {
   width: 100%;
   max-width: 85rem;
