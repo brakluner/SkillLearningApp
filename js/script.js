@@ -1,38 +1,23 @@
-var objectTest = {
-    firstName: {
-        LocationTest: "minnesnowta",
-        Weather: "Colder than Canada",
-    },
-    secondName: {
-        LocationTest: "Califorincation",
-        Weather: "'It's Raining Men",
-    }
-
-}
-
-let keys = Object.keys(objectTest);
-//console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
 
-    //increments the recent serches
-    let keys = Object.keys(objectTest);
-    for (var i = 0; i < keys.length; i++) {
-
-        var createNewOption = $("<option>");
-        createNewOption.addClass("autoOption");
-        createNewOption.attr("id", objectTest[keys[i]].LocationTest);
-        createNewOption.attr("value", objectTest[keys[i]].LocationTest);
-        $(createNewOption).text(objectTest[keys[i]].LocationTest);
-        //console.log(objectTest[keys[i]].LocationTest);
-
-        $(".skill-dropdown").append(createNewOption);
+    //Gets the recent searches
+    if ((localStorage.getItem("recentSearches") === null)) {
+        var recentSearches = [];
+        console.log(recentSearches);
+    } else {
+        var recentSearches = JSON.parse(localStorage.getItem("recentSearches"));
+        console.log(recentSearches);
     }
+    getDropDown(recentSearches);
 
     // on click searchfunctions to Search
     $(".button").click(function () {
         var searchBar = $("#search").val();
         console.log(searchBar);
         console.log("second " + searchBar);
+        recentSearches.push(searchBar);
+        addToDropDown(searchBar);
+        localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
         if ($("#youtube-radio").prop("checked") == true) {
             getVideo(searchBar);
         };
@@ -134,4 +119,26 @@ function updatePage(defData) {
     $(".dictionary-def").append(displayPron)
     $(".dictionary-def").append(typeDef)
     $(".dictionary-def").append(defi)
+}
+
+// Gets the drop Down recent searches menu
+function getDropDown(recentSearches) {
+    for (var i = 0; i < recentSearches.length; i++) {
+        var createNewOption = $("<option>");
+        createNewOption.addClass("auto-option");
+        createNewOption.attr("id", recentSearches[i]);
+        createNewOption.attr("value", recentSearches[i]);
+        $(createNewOption).text(recentSearches[i]);
+        $(".skill-dropdown").append(createNewOption);
+    }
+}
+
+
+function addToDropDown(searchForBoth) {
+    var createNewOption = $("<option>");
+    createNewOption.addClass("autoOption");
+    createNewOption.attr("id", searchForBoth);
+    createNewOption.attr("value", searchForBoth);
+    $(createNewOption).text(searchForBoth);
+    $(".skill-dropdown").append(createNewOption);
 }
