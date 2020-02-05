@@ -47,7 +47,7 @@ $(document).ready(function () {
             $.ajax({
                 url: queryURL,
                 method: "GET"
-            }).then(updatePage());
+            }).then(updatePage);
         };
         clear();
         var queryURL = getDefinition();
@@ -94,15 +94,15 @@ function embedVideo(data) {
 function getInfo(searchBar) {
     $.ajax({
         type: 'GET',
-        url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&',
-        data: {
-            //key: '',
-            title: searchBar,
-            maxResults: 1,
-        },
+        url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + searchBar,
+        crossDomain: true,
+        dataType: 'jsonp',
         success: function (data) {
             console.log(data);
-            $('.wiki-content').text(data);
+            let wikiKeys = Object.keys(data.query.pages);
+            console.log(data.query.pages[wikiKeys[0]].extract);
+            let wikiContent = data.query.pages[wikiKeys[0]].extract
+            $('.wiki-content').html(wikiContent);
         }
     });
 }
@@ -131,8 +131,9 @@ function updatePage(defData) {
     var displayPron = $("<div></div>").text(defPron)
     var typeDef = $("<div></div>").text(defType)
     var defi = $("<div></div>").text(definition)
-    $("#def").append(displayDef)
-    $("#def").append(displayPron)
-    $("#def").append(typeDef)
-    $("#def").append(defi)
+
+    $(".dictionary-def").append(displayDef)
+    $(".dictionary-def").append(displayPron)
+    $(".dictionary-def").append(typeDef)
+    $(".dictionary-def").append(defi)
 }
