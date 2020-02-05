@@ -55,7 +55,7 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(updatePage);
-    });
+    };
 });
 
     });
