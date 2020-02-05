@@ -25,13 +25,27 @@ $(document).ready(function () {
     }
 });
 // Add click functions to Search
+
 $(document).ready(function () {
+
+    //Gets the recent searches
+    if ((localStorage.getItem("recentSearches") === null)) {
+        var recentSearches = [];
+        console.log(recentSearches);
+    } else {
+        var recentSearches = JSON.parse(localStorage.getItem("recentSearches"));
+        console.log(recentSearches);
+    }
+    getDropDown(recentSearches);
 
     // on click searchfunctions to Search
     $(".button").click(function () {
         var searchBar = $("#search").val();
         console.log(searchBar);
         console.log("second " + searchBar);
+        recentSearches.push(searchBar);
+        addToDropDown(searchBar);
+        localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
         if ($("#youtube-radio").prop("checked") == true) {
             getVideo(searchBar);
         };
@@ -139,3 +153,13 @@ function updatePage(defData) {
 }
 
 });
+
+
+function addToDropDown(searchForBoth) {
+    var createNewOption = $("<option>");
+    createNewOption.addClass("autoOption");
+    createNewOption.attr("id", searchForBoth);
+    createNewOption.attr("value", searchForBoth);
+    $(createNewOption).text(searchForBoth);
+    $(".skill-dropdown").append(createNewOption);
+}
