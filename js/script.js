@@ -58,8 +58,8 @@ $(document).ready(function () {
     };
 });
 
-    });
-});
+ 
+
 
 //list of functions
 //get the video
@@ -137,3 +137,5 @@ function updatePage(defData) {
     $(".dictionary-def").append(typeDef)
     $(".dictionary-def").append(defi)
 }
+
+});
