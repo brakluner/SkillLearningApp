@@ -11,7 +11,15 @@ $(document).ready(function () {
     getDropDown(recentSearches);
 
     // on click searchfunctions to Search
-    $(".button").click(function () {
+    $(".button").click(function () { runAll() });
+
+    $(".skill-dropdown").change(function () {
+        $("#search").val($(this).val());
+        runAll();
+    });
+
+    //main running Function
+    function runAll() {
         var searchBar = $("#search").val();
         console.log(searchBar);
         console.log("second " + searchBar);
@@ -34,7 +42,7 @@ $(document).ready(function () {
 
         clear();
 
-    });
+    }
 });
 
 //list of functions
@@ -133,7 +141,7 @@ function getDropDown(recentSearches) {
     }
 }
 
-
+//adds the new serach to drop down menu
 function addToDropDown(searchForBoth) {
     var createNewOption = $("<option>");
     createNewOption.addClass("autoOption");
