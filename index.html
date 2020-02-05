@@ -13,21 +13,50 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
   <!--  <link rel="stylesheet" href="css/scss.scss" />  -->
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
   </head>
+
+  
   <body>
     <div class="hero-full-screen">
       <div class="top-content-section">
         <div class="top-bar">
           <form class="skill-selection">
             <select class="skill-dropdown menu-text">
-              <option aria-placeholder="recent-menu">Recent Searches</option>
+              <option aria-placeholder="Recent">Recent Searches</option>
             </select>
           </form>
+
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <a href="#">Sites to Visit</a>
+              <ul class="menu">
+                <input id="youtube-radio" type="checkbox" checked /><label
+                for="youtube-radio"
+                >Youtube</label
+              >
+              <input id="wiki-radio" type="checkbox" checked /><label for="wiki-radio"
+                >Wiki</label
+              >
+              <input id="def-radio" type="checkbox" checked /><label for="def-radio"
+                >Get Definition</label
+              >
+              </ul>
+            </li>
+          </ul>
+       
+          <ul class="menu icons icon-left">
+            <li><a href="#"><i class="fi-list"></i> <span>Register</span></a></li>
+            <li><a href="#"><i class="fi-list"></i> <span>Login</span></a></li>
+          </ul>
+          
         </div>
       </div>
 
       <div class="middle-content-section">
-        <h1>I want to learn how to</h1>
+        <h1 id = "red">I want to learn how to</h1>
         <input id="search" type="search" placeholder="I want to learn how to..." />
         <button type="button" class="button">Search</button>
       </div>
@@ -52,35 +81,59 @@
       <!-- your content goes here -->
     </div>
 
-    <fieldset class="fieldset">
-      <legend>Sites to Visit</legend>
-      <input id="youtube-radio" type="checkbox" checked /><label
-        for="youtube-radio"
-        >Youtube</label
-      >
-      <input id="wiki-radio" type="checkbox" checked /><label for="wiki-radio"
-        >Wiki</label
-      >
+    <div class = "grid-x">
 
-      <input id="def-radio" type="checkbox" checked /><label for="def-radio"
-        >Get Definition</label
-      >
-    </fieldset>
+    
+      <div class = "cell small-4">
 
-    <div class = "row">
+       
+        <div class="video-placement"></div>
+          <p class="description">Video Description</p>
+          <p></p>
+          <iframe src=""></iframe>
+          <h3>Video Title</h3>
 
-      <div class = "small-6 columns">
+      </div>
 
-        <p></p>
-        <iframe src=""></iframe>
-        <h3>Video Title</h3>
+      <div class = "cell small-8">
+
+        <div class="retrieved-data"></div>
+          <div class="dictionary-def"></div>
+          <div class="wiki-content"></div>
+          <div class="video-placement"></div>
 
 
       </div>
-      
-      <div class = "small-6 columns">
 
-        Test
+     
+
+
+
+
+    </div>
+
+    
+<!--
+    <div class = "row">
+
+      <div class = "columns small-6 ">
+
+        <div class="retrieved-data"></div>
+        <div class="dictionary-def"></div>
+        <div class="wiki-content"></div>
+        <div class="video-placement">
+          <p class="description">Video Description</p>
+          <p></p>
+          <iframe src=""></iframe>
+          <h3>Video Title</h3>
+        </div>
+
+      </div>
+    
+      
+      <div id = "right" class = "columns small-6 ">
+
+       
 
         <div class="retrieved-data"></div>
           <div class="dictionary-def"></div>
@@ -88,6 +141,14 @@
           <div class="video-placement"></div>
       
         </div>
+
+      </div>
+
+    -->
+      
+
+    
+   
 
     
 
