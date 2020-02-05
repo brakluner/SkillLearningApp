@@ -163,9 +163,8 @@ function updatePage(defData) {
     $(".dictionary-def").append(displayPron)
     $(".dictionary-def").append(typeDef)
     $(".dictionary-def").append(defi)
-}
 
-});
+};
 
 function getDropDown(recentSearches) {
     for (var i = 0; i < recentSearches.length; i++) {
