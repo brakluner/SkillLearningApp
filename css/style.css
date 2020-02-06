@@ -5,4 +5,11 @@
 .menu-select {
   color: black;
 }
-
+.urbanDic {
+  color: #ba1789;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+}
+.dicList {
+  font-size: 18px;
+}

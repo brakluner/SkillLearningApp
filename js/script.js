@@ -54,11 +54,15 @@ $(document).ready(function () {
         recentSearches.push(searchBar);
         addToDropDown(searchBar);
         localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+    
         if ($("#youtube-radio").prop("checked") == true) {
             getVideo(searchBar);
         };
         if ($("#wiki-radio").prop("checked") == true) {
             getInfo(searchBar);
+        };
+        if ($("#dic-def").prop("checked") == true) {
+            urbanDic(searchBar);
         };
 
         //if clicked, returns definition of search term
@@ -165,7 +169,41 @@ function updatePage(defData) {
     $(".dictionary-def").append(defi)
 
 };
+//urbanDic
+function urbanDic(searchBar) {
+$.ajax({
+    async: true,
+    crossDomain: true,
+    url: "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + searchBar,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
+      "x-rapidapi-key": "2e6a00a0b7mshb40a079e7a67f38p181597jsn5910590141c3"
+    },
+      success: function (dicData) {
+        console.log(dicData);
+        spawnDicData(dicData);
+    }
+  })
+}
+function spawnDicData(dicData) {
 
+    var displayUrbTable = $("<div></div>").text("Urban Dictionary Results")
+    
+    for (var i = 0; i<10; i++) {
+
+    var urbanDic = dicData.list[i].definition;
+
+    console.log(urbanDic)
+    
+   
+    var displayUrbanDic = $("<div></div>").text(urbanDic)
+
+    $(displayUrbanDic).addClass("dicList")
+    $(".urbanDic").append(displayUrbTable)
+    $(displayUrbTable).append(displayUrbanDic)
+    }
+}
 function getDropDown(recentSearches) {
     for (var i = 0; i < recentSearches.length; i++) {
         var createNewOption = $("<option>");
