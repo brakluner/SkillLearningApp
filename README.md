@@ -31,3 +31,4 @@ Phase Five: Enhanced Layout and Search Function
 
 Once the functionality is secured, this phase will be focused on the UX and navigation capabilities. Information will be displayed in a visually pleasing manner. A theme will be implemented throughout the website featuring key colors, font styles, and borders. The search will have corresponding imagery or videos with keywords. The search function will work effectively for 1000+ searches, with the ability to recognize similes for words that are searched. Recent search data will impact the most popular skills that are listed on the left side by providing skill recommendations.
 
+https://docs.google.com/presentation/d/1UjydjHMdnC_9UsEwPdKQM-M_-uWrtsMUFziwA7waVJw/edit#slide=id.g7d6b5c2724_0_2059
