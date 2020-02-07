@@ -1,5 +1,5 @@
 
-let keys = Object.keys(objectTest);
+
 //console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
 
