@@ -1,3 +1,17 @@
+$(document).ready(function () {
+
+    //increments the recent serches
+    let keys = Object.keys(objectTest);
+    for (var i = 0; i < keys.length; i++) {
+        var createNewOption = $("<option>");
+        createNewOption.addClass("autoOption");
+        createNewOption.attr("id", objectTest[keys[i]].LocationTest);
+        createNewOption.attr("value", objectTest[keys[i]].LocationTest);
+        $(createNewOption).text(objectTest[keys[i]].LocationTest);
+        //console.log(objectTest[keys[i]].LocationTest);
+        $(".skill-dropdown").append(createNewOption);
+    }
+});
 // Add click functions to Search
 
 $(document).ready(function () {
