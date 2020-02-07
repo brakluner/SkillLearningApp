@@ -1,6 +1,4 @@
 
-
-//console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
 
     //increments the recent serches
@@ -58,24 +56,21 @@ $(document).ready(function () {
 
         //if clicked, returns definition of search term
         if ($("#def-radio").prop("checked") == true) {
-            getDefinition(searchBar);
-        if ($("#def-radio").prop("checked") == true) {
             var queryURL = getDefinition(searchBar);
             $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(updatePage);
-        };
-        clear();
-
-
-    }
-
-        var queryURL = getDefinition();
-        $.ajax({
             url: queryURL,
             method: "GET"
         }).then(updatePage);
+        if ($("#def-radio").prop("checked") == true) {
+            
+        };
+        clear();
+
+        
+
+    }
+
+        
     };
 
 });
