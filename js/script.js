@@ -145,7 +145,7 @@ function getDefinition(searchBar) {
 }
 //updates the page to new info
 function updatePage(defData) {
-    //var mainDef = defData[0].meta.id
+    var mainDef = defData[0].meta.id
     var defPron = defData[0].hwi.hw
     var defType = defData[0].fl
     var definition = defData[0].def[0].sseq[0][1][1].dt[0][1]
@@ -154,6 +154,7 @@ function updatePage(defData) {
     var displayPron = $("<div></div>").text(defPron)
     var typeDef = $("<div></div>").text(defType)
     var defi = $("<div></div>").text(definition)
+
 
     $(".dictionary-def").append(displayDef)
     $(".dictionary-def").append(displayPron)
