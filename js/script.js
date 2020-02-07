@@ -28,6 +28,7 @@ $(document).ready(function () {
         recentSearches.push(searchBar);
         addToDropDown(searchBar);
         localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+        clear();
 
         if ($("#youtube-radio").prop("checked") == true) {
             getVideo(searchBar);
@@ -40,28 +41,24 @@ $(document).ready(function () {
         };
 
         //if clicked, returns definition of search term
+
         if ($("#def-radio").prop("checked") == true) {
-            getDefinition(searchBar);
-            if ($("#def-radio").prop("checked") == true) {
-                var queryURL = getDefinition(searchBar);
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(updatePage);
-            };
-            clear();
+            var queryURL = getDefinition(searchBar);
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(updatePage);
+        };
 
+    }
 
-        }
-
-        var queryURL = getDefinition();
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(updatePage);
-    };
-
+    var queryURL = getDefinition();
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(updatePage);
 });
+
 
 
 
@@ -113,6 +110,9 @@ function getInfo(searchBar) {
 }
 //clrears previous info
 function clear() {
+    $(".dictionary-def").empty();
+    $(".urbanDic").empty();
+    $(".wiki-content").empty();
     $(".dictionary-def").empty();
 }
 //Dictionary function
