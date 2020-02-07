@@ -224,7 +224,7 @@ function addToDropDown(searchForBoth) {
 
 //function for running through search words
 
-var wordsArray = ["swim", "cook", "jump"];
+var wordsArray = ["write", "cook", "fish", "sing", "code" , "walk" , "type" , "hunt" , "draw" , "skydive" , "dance"];
 //var counter = ++;
 nextWord(wordsArray, 0);
 var i = wordsArray[counter];
@@ -246,45 +246,4 @@ setInterval(function(){
 
 }
 
-/*
-count = 0;
-
-
-//var words = input.split(/\s+/);
-
-function nextWord() {
-    $("#red").html.wordsArray;
-    if (wordsArray.length > 0) setTimeout(nextWord,1000);
-    else alert("Done");
-}
-setTimeout(nextWord,1000);
-*/
-/*
-setInterval(function() {
-    //var rand = Math.floor(Math.random() *4);
-    
-
-
-    for (i = 0; i<wordsArray.length; i++) {
-
-    $("#search").attr("placeholder" , "I want to learn how to... "  + wordsArray[i]);
-   // document.getElementById("red").innerHTML = wordsArray[rand];
-    };
-}, 2500);
-
-
-});
-
-*/
-
-
-/*
-var words = "hello";
-
-for (var )
-
-$("#search").attr("placeholder","I want to learn how to " + words);
-
-});
-*/
 
