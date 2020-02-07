@@ -1,29 +1,3 @@
-var objectTest = {
-    firstName: {
-        LocationTest: "minnesnowta",
-        Weather: "Colder than Canada",
-    },
-    secondName: {
-        LocationTest: "Califorincation",
-        Weather: "'It's Raining Men",
-    }
-}
-let keys = Object.keys(objectTest);
-//console.log(objectTest[newI].LocationTest);
-$(document).ready(function () {
-
-    //increments the recent serches
-    let keys = Object.keys(objectTest);
-    for (var i = 0; i < keys.length; i++) {
-        var createNewOption = $("<option>");
-        createNewOption.addClass("autoOption");
-        createNewOption.attr("id", objectTest[keys[i]].LocationTest);
-        createNewOption.attr("value", objectTest[keys[i]].LocationTest);
-        $(createNewOption).text(objectTest[keys[i]].LocationTest);
-        //console.log(objectTest[keys[i]].LocationTest);
-        $(".skill-dropdown").append(createNewOption);
-    }
-});
 // Add click functions to Search
 
 $(document).ready(function () {
@@ -54,7 +28,7 @@ $(document).ready(function () {
         recentSearches.push(searchBar);
         addToDropDown(searchBar);
         localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-    
+
         if ($("#youtube-radio").prop("checked") == true) {
             getVideo(searchBar);
         };
@@ -68,17 +42,17 @@ $(document).ready(function () {
         //if clicked, returns definition of search term
         if ($("#def-radio").prop("checked") == true) {
             getDefinition(searchBar);
-        if ($("#def-radio").prop("checked") == true) {
-            var queryURL = getDefinition(searchBar);
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(updatePage);
-        };
-        clear();
+            if ($("#def-radio").prop("checked") == true) {
+                var queryURL = getDefinition(searchBar);
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(updatePage);
+            };
+            clear();
 
 
-    }
+        }
 
         var queryURL = getDefinition();
         $.ajax({
@@ -89,7 +63,7 @@ $(document).ready(function () {
 
 });
 
- 
+
 
 
 //list of functions
@@ -171,37 +145,37 @@ function updatePage(defData) {
 };
 //urbanDic
 function urbanDic(searchBar) {
-$.ajax({
-    async: true,
-    crossDomain: true,
-    url: "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + searchBar,
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
-      "x-rapidapi-key": "2e6a00a0b7mshb40a079e7a67f38p181597jsn5910590141c3"
-    },
-      success: function (dicData) {
-        console.log(dicData);
-        spawnDicData(dicData);
-    }
-  })
+    $.ajax({
+        async: true,
+        crossDomain: true,
+        url: "https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + searchBar,
+        method: "GET",
+        headers: {
+            "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
+            "x-rapidapi-key": "2e6a00a0b7mshb40a079e7a67f38p181597jsn5910590141c3"
+        },
+        success: function (dicData) {
+            console.log(dicData);
+            spawnDicData(dicData);
+        }
+    })
 }
 function spawnDicData(dicData) {
 
     var displayUrbTable = $("<div></div>").text("Urban Dictionary Results")
-    
-    for (var i = 0; i<10; i++) {
 
-    var urbanDic = dicData.list[i].definition;
+    for (var i = 0; i < 10; i++) {
 
-    console.log(urbanDic)
-    
-   
-    var displayUrbanDic = $("<div></div>").text(urbanDic)
+        var urbanDic = dicData.list[i].definition;
 
-    $(displayUrbanDic).addClass("dicList")
-    $(".urbanDic").append(displayUrbTable)
-    $(displayUrbTable).append(displayUrbanDic)
+        console.log(urbanDic)
+
+
+        var displayUrbanDic = $("<div></div>").text(urbanDic)
+
+        $(displayUrbanDic).addClass("dicList")
+        $(".urbanDic").append(displayUrbTable)
+        $(displayUrbTable).append(displayUrbanDic)
     }
 }
 function getDropDown(recentSearches) {
