@@ -30,6 +30,14 @@ $(document).ready(function () {
     // on click searchfunctions to Search
     $(".button").click(function () { runAll() });
 
+    // click function by Enter
+    $("#search").keypress(function(e) {
+        if(e.which == 13){
+            $(".button").click()
+        };
+    });
+
+
     $(".skill-dropdown").change(function () {
         $("#search").val($(this).val());
         runAll();
@@ -213,3 +221,37 @@ function addToDropDown(searchForBoth) {
     $(createNewOption).text(searchForBoth);
     $(".skill-dropdown").append(createNewOption);
 }
+
+//function for running through search words
+
+/*
+
+$(function () {
+
+count = 0;
+var wordsArray = ["swim", "cook", "jump", "sing" , "fly" , "code" , "dance" , "sleep" , "drive" , "walk" , "twerk" , "lie" , "hunt"];
+
+
+setInterval(function() {
+    var rand = Math.floor(Math.random() *4);
+
+    $("#search").attr("placeholder" , "I want to learn how to... "  + wordsArray[rand]);
+   // document.getElementById("red").innerHTML = wordsArray[rand];
+}, 2000);
+
+
+});
+
+*/
+
+
+/*
+var words = "hello";
+
+for (var )
+
+$("#search").attr("placeholder","I want to learn how to " + words);
+
+});
+*/
+
