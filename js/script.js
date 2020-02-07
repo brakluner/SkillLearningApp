@@ -1,13 +1,4 @@
-var objectTest = {
-    firstName: {
-        LocationTest: "minnesnowta",
-        Weather: "Colder than Canada",
-    },
-    secondName: {
-        LocationTest: "Califorincation",
-        Weather: "'It's Raining Men",
-    }
-}
+
 let keys = Object.keys(objectTest);
 //console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
@@ -140,6 +131,7 @@ function getInfo(searchBar) {
 //clrears previous info
 function clear() {
     $(".dictionary-def").empty();
+    $(".urbanDic").empty();
 }
 //Dictionary function
 function getDefinition(searchBar) {
