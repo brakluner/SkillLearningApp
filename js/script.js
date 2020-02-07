@@ -150,6 +150,7 @@ function updatePage(defData) {
     var typeDef = $("<div></div>").text(defType)
     var defi = $("<div></div>").text(definition)
 
+
     $(".dictionary-def").append(displayDef)
     $(".dictionary-def").append(displayPron)
     $(".dictionary-def").append(typeDef)

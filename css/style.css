@@ -13,3 +13,13 @@
 .dicList {
   font-size: 18px;
 }
+
+.small-4 {
+
+    border-right: 2px dotted grey;
+    padding: 5px;
+}
+
+.small-8 {
+    padding: 50px;
+}
