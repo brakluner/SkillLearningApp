@@ -32,14 +32,15 @@
               >
             </select>
           </form>
-
-          <ul class="dropdown menu" data-dropdown-menu>
+          
+          <ul  class="dropdown menu" data-dropdown-menu>
+            <div class = "background">
             <li>
               <a href="#">Sites to Visit</a>
-              <ul class="menu">
+              <ul id = "backgroundColor" class="menu">
                 <input id="youtube-radio" type="checkbox" checked /><label
                   for="youtube-radio"
-                  >Youtube</label
+                  >Video</label
                 >
                 <input id="wiki-radio" type="checkbox" checked /><label
                   for="wiki-radio"
@@ -47,14 +48,14 @@
                 >
                 <input id="def-radio" type="checkbox" checked /><label
                   for="def-radio"
-                  >Get Definition</label
+                  >Definition</label
                 >
                 <input id="dic-def" type="checkbox" checked /><label
                   for="dic-def"
-                  >Urban Dictionary</label
-                >
+                  >Slang </label>
               </ul>
             </li>
+          </div>
           </ul>
 
           <ul class="menu icons icon-left">
@@ -98,8 +99,80 @@
       <!-- your content goes here -->
     </div>
 
-    <div class="grid-x">
-      <div class="cell small-4">
+  
+
+    <div class="container">
+      <div class="grid-1 callout primary">
+        <div class = "video-class">
+          
+          <iframe src=""></iframe>
+          <h3></h3>
+
+        </div>  
+      </div>
+    
+      <div class="grid-2 callout warning">
+
+        <div class="dictionary-def"></div>
+
+        
+      </div>
+    
+      <div class="grid-3 callout alert">
+        <div class="wiki-content"></div>
+
+      </div>
+    
+      <div class="grid-4 callout success">
+        <div class="urbanDic"></div>
+      </div>
+    </div>
+
+
+    <div class = "grid-x">
+
+    
+      <div class = "cell small-4">
+
+        
+
+
+
+       
+        <!-- <div class="video-placement"></div> -->
+          <!-- <p class="description">Video Description</p> -->
+          <!-- <p></p> -->
+
+          
+
+      </div>
+
+      <div class = "cell small-8">
+
+        <!-- <div class="retrieved-data"></div> -->
+          
+          <!-- <div class="video-placement"></div> -->
+          
+
+
+      </div>
+
+     
+
+
+
+
+    </div>
+
+    
+<!--
+    <div class = "row">
+
+      <div class = "columns small-6 ">
+
+        <div class="retrieved-data"></div>
+        <div class="dictionary-def"></div>
+        <div class="wiki-content"></div>
         <div class="video-placement">
           <p class="description">Video Description</p>
           <p></p>

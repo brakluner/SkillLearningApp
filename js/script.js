@@ -1,17 +1,3 @@
-$(document).ready(function () {
-
-    //increments the recent serches
-    let keys = Object.keys(objectTest);
-    for (var i = 0; i < keys.length; i++) {
-        var createNewOption = $("<option>");
-        createNewOption.addClass("autoOption");
-        createNewOption.attr("id", objectTest[keys[i]].LocationTest);
-        createNewOption.attr("value", objectTest[keys[i]].LocationTest);
-        $(createNewOption).text(objectTest[keys[i]].LocationTest);
-        //console.log(objectTest[keys[i]].LocationTest);
-        $(".skill-dropdown").append(createNewOption);
-    }
-});
 // Add click functions to Search
 
 $(document).ready(function () {
@@ -55,22 +41,24 @@ $(document).ready(function () {
         };
 
         //if clicked, returns definition of search term
-
         if ($("#def-radio").prop("checked") == true) {
             var queryURL = getDefinition(searchBar);
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(updatePage);
-        };
+            if ($("#def-radio").prop("checked") == true) {
 
-    }
+            };
+            clear();
 
-    var queryURL = getDefinition();
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(updatePage);
+
+
+        }
+
+
+    };
+
 });
 
 
@@ -141,7 +129,7 @@ function getDefinition(searchBar) {
 }
 //updates the page to new info
 function updatePage(defData) {
-    //var mainDef = defData[0].meta.id
+    var mainDef = defData[0].meta.id
     var defPron = defData[0].hwi.hw
     var defType = defData[0].fl
     var definition = defData[0].def[0].sseq[0][1][1].dt[0][1]
@@ -150,6 +138,7 @@ function updatePage(defData) {
     var displayPron = $("<div></div>").text(defPron)
     var typeDef = $("<div></div>").text(defType)
     var defi = $("<div></div>").text(definition)
+
 
     $(".dictionary-def").append(displayDef)
     $(".dictionary-def").append(displayPron)
