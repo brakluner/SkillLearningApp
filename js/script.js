@@ -193,6 +193,7 @@ function spawnDicData(dicData) {
     }
 }
 function getDropDown(recentSearches) {
+    
     for (var i = 0; i < recentSearches.length; i++) {
         var createNewOption = $("<option>");
         createNewOption.addClass("auto-option");
