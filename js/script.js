@@ -1,6 +1,4 @@
 
-let keys = Object.keys(objectTest);
-//console.log(objectTest[newI].LocationTest);
 $(document).ready(function () {
 
     //increments the recent serches
@@ -60,22 +58,19 @@ $(document).ready(function () {
         if ($("#def-radio").prop("checked") == true) {
             getDefinition(searchBar);
         if ($("#def-radio").prop("checked") == true) {
-            var queryURL = getDefinition(searchBar);
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(updatePage);
+            
         };
         clear();
-
-
-    }
 
         var queryURL = getDefinition();
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(updatePage);
+
+    }
+
+        
     };
 
 });
@@ -145,7 +140,7 @@ function getDefinition(searchBar) {
 }
 //updates the page to new info
 function updatePage(defData) {
-    //var mainDef = defData[0].meta.id
+    var mainDef = defData[0].meta.id
     var defPron = defData[0].hwi.hw
     var defType = defData[0].fl
     var definition = defData[0].def[0].sseq[0][1][1].dt[0][1]
