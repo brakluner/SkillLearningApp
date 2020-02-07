@@ -56,17 +56,17 @@ $(document).ready(function () {
 
         //if clicked, returns definition of search term
         if ($("#def-radio").prop("checked") == true) {
-            getDefinition(searchBar);
+            var queryURL = getDefinition(searchBar);
+            $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(updatePage);
         if ($("#def-radio").prop("checked") == true) {
             
         };
         clear();
 
-        var queryURL = getDefinition();
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(updatePage);
+        
 
     }
 
