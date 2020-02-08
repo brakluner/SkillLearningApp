@@ -30,6 +30,14 @@ $(document).ready(function () {
     // on click searchfunctions to Search
     $(".button").click(function () { runAll() });
 
+    // click function by Enter
+    $("#search").keypress(function(e) {
+        if(e.which == 13){
+            $(".button").click()
+        };
+    });
+
+
     $(".skill-dropdown").change(function () {
         $("#search").val($(this).val());
         runAll();
@@ -213,3 +221,29 @@ function addToDropDown(searchForBoth) {
     $(createNewOption).text(searchForBoth);
     $(".skill-dropdown").append(createNewOption);
 }
+
+//function for running through search words
+
+var wordsArray = ["write", "cook", "fish", "sing", "code" , "walk" , "type" , "hunt" , "draw" , "skydive" , "dance"];
+//var counter = ++;
+nextWord(wordsArray, 0);
+var i = wordsArray[counter];
+
+function nextWord(wordsArray, i) {
+
+
+setInterval(function(){
+
+    //console.log(wordsArray[i]);
+    $("#search").attr("placeholder" , "I want to learn how to... "  + wordsArray[i]);
+
+    i++;
+    i %= wordsArray.length;
+
+
+
+}, 2500);
+
+}
+
+
