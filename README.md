@@ -11,7 +11,7 @@ The application is currently in the development phase and will be released in fi
 
 ScreenShot of Application:
 
-![](./CovidPic.PNG)
+![](./sllik.PNG)
 
 Phase One: Drop Down Selector with Basic Information
 
